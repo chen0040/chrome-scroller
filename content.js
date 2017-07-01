@@ -25,6 +25,8 @@ chrome.runtime.onMessage.addListener(
             clearInterval(scrollInterval);
             scrollInterval = null;
         }
+    } else if(request.message === 'set_scroll_delta') {
+        scrollDelta = request.delta;
     }
   }
 );
