@@ -10,7 +10,7 @@
         ],
         "js": [
             "content.js",
-            "http://code.jquery.com/jquery-3.2.1.min.js"
+            "jquery-3.2.1.min.js"
         ]
       }
   ],
@@ -25,21 +25,13 @@
         "38": "icons/38x38.png"
     },
     "default_popup": "popup.html",
-    "default_title": "That's the tool tip"
-  },
-  "page_action": {
-    "default_icon": {
-        "19": "images/icon19x19.png",
-        "38": "images/icon38x38.png"
-    },
-    "default_title": "Google Mail",
-    "default_popup": "popup.html"
+    "default_title": "Page Auto-Scroll"
   },
   "description": "Scroller that allows user to automate the vertical scrolling of the web page with user-defined speed",
-  "icons": { "16" : "images/icon.png",
-                        "48" : "images/48.png",
-                        "128" : "images/128.png"},
-  "homepage_url": "http://github.com/chen0040/chrome-scroller",
+  "icons": { "16" : "images/icon16x16.png",
+            "48" : "images/icon48x48.png",
+            "128" : "images/icon128x128.png"},
+  "homepage_url": "https://github.com/chen0040/chrome-scroller",
   "permissions": [
     "http://insert_base_rss_url_here.com/*"
   ]
