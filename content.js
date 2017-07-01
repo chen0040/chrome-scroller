@@ -1,6 +1,7 @@
 // content.js
 var scrollInterval = null; 
-var scrollDelta = 10;
+var scrollDelta = 0.2;
+var scrollAmount = 0;
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
@@ -11,9 +12,14 @@ chrome.runtime.onMessage.addListener(
             clearInterval(scrollInterval);
         }
         scrollInterval = setInterval(function() {
+            scrollAmount += scrollDelta;
+            if(scrollAmount < 1) {
+                return;
+            } 
             var y = $(window).scrollTop();  //your current y position on the page
-            $(window).scrollTop(y + scrollDelta);
-        }, 500);
+            $(window).scrollTop(y + scrollAmount);
+            scrollAmount = 0;
+        }, 50);
     } else if(request.message === 'disable_scroll') {
         if(scrollInterval != null) {
             clearInterval(scrollInterval);

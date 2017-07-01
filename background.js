@@ -11,10 +11,10 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 });
 */
 
-// Called when the content.js sends the message "open_new_tab"
+// Called when the content.js sends the message "open_about"
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    if( request.message === "open_new_tab" ) {
+    if( request.message === "open_about" ) {
       chrome.tabs.create({"url": request.url});
     }
   }
