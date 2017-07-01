@@ -1,6 +1,6 @@
 // content.js
 var scrollInterval = null; 
-var scrollDelta = 0.2;
+var scrollDelta = 0.6;
 var scrollAmount = 0;
 
 chrome.runtime.onMessage.addListener(
@@ -27,6 +27,8 @@ chrome.runtime.onMessage.addListener(
         }
     } else if(request.message === 'set_scroll_delta') {
         scrollDelta = request.delta;
+    } else if(request.message === 'get_scroll_delta') {
+        chrome.runtime.sendMessage({"message": "return_get_scroll_delta", "delta": scrollDelta, "tab_id": request.tab_id});
     }
   }
 );

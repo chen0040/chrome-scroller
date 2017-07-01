@@ -39,8 +39,25 @@ window.onload = function() {
           });
     };
     
+    
+    
+    chrome.runtime.onMessage.addListener(
+      function(request, sender, sendResponse) {
+        if( request.message === "return_get_scroll_delta" ) {
+            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                var activeTab = tabs[0];
+                if(activeTab.id === request.tab_id){
+                    $('#txtScrollDelta').val(request.delta);
+                }
+            });
+        }
+      }
+    );
+    
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(activeTab.id, {"message": "get_scroll_delta"});
+        var activeTab = tabs[0];
+        chrome.tabs.sendMessage(activeTab.id, {"message": "get_scroll_delta", "tab_id": activeTab.id});
     });
+    
     
 }
